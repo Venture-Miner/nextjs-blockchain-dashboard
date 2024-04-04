@@ -55,4 +55,10 @@
   
 4.  Submission Instructions:
     
-Please create a fork to this repository and send the link for jobs@ventureminer.com when you have finished
+Please create a fork from this repository before starting to work on the project.
+
+Submit an empty initial commit when you start working.
+
+Send the link to jobs@ventureminer.com when you have finished working.
+
+The duration will be evaluated from the time elapsed between the first commit and the last.
