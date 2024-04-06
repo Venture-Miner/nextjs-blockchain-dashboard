@@ -1,0 +1,20 @@
+
+.themeIcon {
+    @apply h-5 w-5 fill-cinder flex-none z-20 absolute top-1/2 -translate-y-1/2;
+}
+
+.switchContainer {
+    @apply relative h-7 w-20 rounded-full bg-primary-light/50 flex flex-row justify-between items-center cursor-pointer;
+}
+
+.switchButton {
+    @apply size-7 shadow-md absolute aspect-square rounded-full bg-white duration-700 ease-in-out;
+}
+
+.switchLight {
+    @apply left-0 translate-x-0;
+}
+
+.switchDark {
+    @apply -translate-x-full left-full;
+}

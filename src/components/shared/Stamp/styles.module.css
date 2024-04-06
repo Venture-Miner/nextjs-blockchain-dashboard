@@ -1,0 +1,27 @@
+/* https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+ Bad pratice, but I prefer clean code and I don't mind jumping between files
+*/
+
+.stamp {
+    @apply w-full bg-transparent flex flex-row justify-center items-center gap-3;
+}
+
+.stampIconContainer {
+    @apply size-10 rounded-xl bg-primary-light/10 flex justify-center items-center;
+}
+
+.stampIconContainer > svg {
+    @apply size-7 fill-primary;
+}
+
+.stampDetails {
+    @apply flex flex-col justify-start items-start;
+}
+
+.stampDetails > h6 {
+    @apply font-thin text-cinder text-sm;
+}
+
+.stampDetails > p {
+    @apply font-bold text-cinder text-sm;
+}
