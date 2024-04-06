@@ -1,0 +1,30 @@
+/* https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+ Bad pratice, but I prefer clean code and I don't mind jumping between files
+*/
+
+.container {
+  @apply bg-white w-full flex flex-col justify-start items-start gap-4 p-4 min-h-svh;
+  @apply md:p-16 md:gap-8;
+  @apply xl:px-32 xl:gap-16;
+}
+
+.sectionContainer {
+  @apply w-full flex flex-col justify-start items-start gap-4;
+  @apply xl:gap-8;
+}
+
+.sectionContainer > h1 {
+  @apply text-xl font-bold text-primary;
+  @apply md:text-3xl;
+  @apply xl:text-5xl;
+}
+
+.stampContainer {
+  @apply flex flex-row justify-between w-full items-center gap-4 divide-x divide-primary
+}
+
+
+.cardContainer {
+  @apply flex flex-row justify-between w-full items-center gap-4 duration-500 ease-in-out;
+}
+

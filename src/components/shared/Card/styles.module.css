@@ -1,0 +1,42 @@
+/* https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+ Bad pratice, but I prefer clean code and I don't mind jumping between files
+*/
+
+
+.card {
+    @apply w-96 rounded-xl bg-white shadow-md p-4 duration-500 ease-in-out;
+    @apply lg:p-6 lg:w-[25rem];
+}
+
+.cardExpand {
+    @apply fixed !left-1/2 -translate-y-1/2 z-50 !top-1/2 -translate-x-1/2 scale-[1.7];
+    box-shadow: 0 0 200px 1000rem rgba(26, 60, 162, 0.191)
+}
+
+.cardHeader {
+    @apply flex flex-row justify-between items-start;
+}
+
+.cardDetail {
+    @apply flex flex-col justify-start items-start gap-1;
+}
+
+.cardDetail > h5 {
+    @apply text-xs font-normal text-cinder-dark;
+}
+
+.cardDetail > p {
+    @apply text-sm font-semibold text-cinder-dark;
+}
+
+.cardSwitch {
+    @apply cursor-pointer outline-none;
+}
+
+.switchIcon {
+    @apply size-8 fill-cinder;
+}
+
+.cardChart {
+    @apply relative h-full w-full min-h-full;
+}
