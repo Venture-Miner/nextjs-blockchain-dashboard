@@ -31,11 +31,15 @@ const Content: React.FC = () => {
 
     if (isLoading) return <div>Loading...</div>;
     if (isError) return <div>{isError}</div>;
-    
+
     return (
-        <section className="flex flex-1 justify-between w-full overflow-hidden">
-            <BlockDataTable columns={blockTabCol} data={blockData} />
-            <TransactionsDataTable columns={transactionsTabCol} data={block?.transactions || []} />
+        <section className="flex flex-col md:flex-row justify-between w-full overflow-hidden">
+            <div className="md:w-1/2 p-4">
+                <BlockDataTable columns={blockTabCol} data={blockData} />
+            </div>
+            <div className="md:w-1/2 p-4">
+                <TransactionsDataTable columns={transactionsTabCol} data={block?.transactions || []} />
+            </div>
         </section>
     );
 };
