@@ -12,9 +12,9 @@ const SearchInput: React.FC = () => {
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Validate search value (block number or block hash)
+    // Validate search value (block number)
     if (!searchValue.trim()) {
-      alert('Please enter a block number or block hash.');
+      alert('Please enter a block number.');
       return;
     }
 
@@ -34,7 +34,7 @@ const SearchInput: React.FC = () => {
     <form className="flex w-full max-w-sm items-center space-x-2 my-12" onSubmit={handleSearch}>
       <Input
         type="text"
-        placeholder="Block Number or Block Hash"
+        placeholder="Block Number ..."
         value={searchValue}
         onChange={handleChange}
       />

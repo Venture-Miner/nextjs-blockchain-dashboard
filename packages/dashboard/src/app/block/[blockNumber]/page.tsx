@@ -14,7 +14,7 @@ const BlockPage = () => {
     });
 
     if (isLoading) return <div>Loading...</div>;
-    if (isError) return <div>{isError}</div>;
+    if (isError) return <div>Error while fetching data</div>;
 
     return (
         <div className='w-full'>
