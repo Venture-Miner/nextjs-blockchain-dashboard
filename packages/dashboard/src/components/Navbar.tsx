@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
     return (
         <section className="flex justify-between w-full">
             <Link href="/">
-                <h2 className="text-2xl font-bold text-gray-800">Dashboard</h2>
+                <h2 className="text-2xl font-bold text-gray-800">Etherscan</h2>
             </Link>
             <ConnectButton.Custom>
                 {({ openConnectModal }) => <Button onClick={openConnectModal}>Sign In</Button>}

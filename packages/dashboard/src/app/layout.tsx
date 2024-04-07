@@ -4,6 +4,13 @@ import "./globals.css";
 import '@rainbow-me/rainbowkit/styles.css';
 import { Providers } from "./providers";
 
+import {
+
+  TooltipProvider,
+
+} from "@/components/ui/tooltip"
+import Navbar from "@/components/Navbar";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,7 +26,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <TooltipProvider>
+            <div className="flex flex-col items-center min-h-screen px-24 py-4">
+              <Navbar />
+              {children}
+            </div>
+          </TooltipProvider>
+        </Providers>
       </body>
     </html>
   );

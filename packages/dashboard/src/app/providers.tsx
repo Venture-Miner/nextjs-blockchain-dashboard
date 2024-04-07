@@ -20,7 +20,7 @@ import {
   sepolia,
 } from 'wagmi/chains';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { WagmiProvider } from 'wagmi';
+import { http, WagmiProvider } from 'wagmi';
 
 const { wallets } = getDefaultWallets();
 
@@ -35,14 +35,12 @@ const config = getDefaultConfig({
     },
   ],
   chains: [
-    mainnet,
-    polygon,
-    optimism,
-    arbitrum,
-    base,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [sepolia] : []),
+    mainnet
   ],
   ssr: true,
+  transports: {
+    [mainnet.id]: http(`https://eth-mainnet.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_API_KEY}`)
+  },
 });
 
 const queryClient = new QueryClient();

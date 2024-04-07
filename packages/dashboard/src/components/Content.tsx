@@ -1,31 +1,41 @@
-import React from 'react';
+"use client"
+import React, { useEffect, useState } from 'react';
+import BlockDataTable from './BlockDataTable';
+import TransactionsDataTable from './TransactionsDataTable';
+import { useBlock } from 'wagmi';
+import { Block } from 'viem';
+import { fetchLastNData } from '@/services';
+import { blockTabCol } from '@/lib/blockTabCol';
+import { transactionsTabCol } from '@/lib/transactionsTabCol';
 
-// Mock components for placeholder content
-const MockBlockData: React.FC = () => (
-    <div className="flex-1 mr-4 bg-gray-200 p-4 rounded-lg shadow-lg">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Latest Block Data</h2>
-        <p>Block Number: 12345</p>
-        <p>Timestamp: {new Date().toLocaleString()}</p>
-        <p>Miner: 0xABC123</p>
-    </div>
-);
-
-const MockTransactions: React.FC = () => (
-    <div className="flex-1 bg-gray-200 p-4 rounded-lg shadow-lg">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Latest Transactions</h2>
-        <ul>
-            <li>Transaction 1</li>
-            <li>Transaction 2</li>
-            <li>Transaction 3</li>
-        </ul>
-    </div>
-);
 
 const Content: React.FC = () => {
+    const [blockData, setBlockData] = useState<Block[]>([]);
+    const { data: block, isLoading, isError } = useBlock({
+        includeTransactions: true
+    });
+
+    useEffect(() => {
+        fetchLastNData(Number(block?.number), 30, 'block')
+            .then((blocks) => {
+                if (blocks) {
+                    const modBlock = blocks as unknown as Block[]
+                    setBlockData(modBlock)
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }, [block?.number])
+
+
+    if (isLoading) return <div>Loading...</div>;
+    if (isError) return <div>{isError}</div>;
+    
     return (
-        <section className="flex flex-1 justify-between w-full">
-            <MockBlockData />
-            <MockTransactions />
+        <section className="flex flex-1 justify-between w-full overflow-hidden">
+            <BlockDataTable columns={blockTabCol} data={blockData} />
+            <TransactionsDataTable columns={transactionsTabCol} data={block?.transactions || []} />
         </section>
     );
 };
