@@ -1,6 +1,5 @@
-import Content from "@/components/Content";
-import Navbar from "@/components/Navbar";
-import SearchInput from "@/components/SearchInput";
+import Content from '@/components/Content'
+import SearchInput from '@/components/SearchInput'
 
 export default function Home() {
   return (
@@ -8,5 +7,5 @@ export default function Home() {
       <SearchInput />
       <Content />
     </>
-  );
+  )
 }
