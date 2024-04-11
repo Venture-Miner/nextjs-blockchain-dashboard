@@ -1,13 +1,10 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import '@rainbow-me/rainbowkit/styles.css'
 import { Providers } from './providers'
 
 import { TooltipProvider } from '@/components/ui/tooltip'
 import Navbar from '@/components/Navbar'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <Providers>
           <TooltipProvider>
             <div className="flex min-h-screen flex-col items-center px-24 py-4">
