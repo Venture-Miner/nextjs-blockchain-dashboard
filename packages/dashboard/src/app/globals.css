@@ -2,14 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Hide scrollbar for all browsers */
 ::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Hide scrollbar for Firefox */
-  /* Note: Firefox supports custom scrollbars */
-  * {
-    scrollbar-width: none;
-  }
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+/* Note: Firefox supports custom scrollbars */
+* {
+  scrollbar-width: none;
+}

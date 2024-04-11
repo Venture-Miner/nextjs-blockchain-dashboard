@@ -1,0 +1,20 @@
+{
+    "root": true,
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "extends": ["eslint:recommended", "plugin:react/recommended", "next/core-web-vitals"],
+    "plugins": ["react", "@next/next"],
+    "rules": {
+      // Add your ESLint rules here
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+  }

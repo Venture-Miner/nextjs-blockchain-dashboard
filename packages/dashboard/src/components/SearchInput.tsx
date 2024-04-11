@@ -1,37 +1,35 @@
 'use client'
-import { useState } from 'react';
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Input } from './ui/input';
-import { Button } from './ui/button';
-
+import { Input } from './ui/input'
+import { Button } from './ui/button'
 
 const SearchInput: React.FC = () => {
-  const router = useRouter();
-  const [searchValue, setSearchValue] = useState<string>('');
+  const router = useRouter()
+  const [searchValue, setSearchValue] = useState<string>('')
 
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
 
     // Validate search value (block number)
     if (!searchValue.trim()) {
-      alert('Please enter a block number.');
-      return;
+      alert('Please enter a block number.')
+      return
     }
 
     try {
-      await router.push(`/block/${searchValue}`);
-      
+      await router.push(`/block/${searchValue}`)
     } catch (error) {
-      console.error('Error navigating to block page:', error);
+      console.error('Error navigating to block page:', error)
     }
-  };
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
-  };
+    setSearchValue(e.target.value)
+  }
 
   return (
-    <form className="flex w-full max-w-sm items-center space-x-2 my-12" onSubmit={handleSearch}>
+    <form className="my-12 flex w-full max-w-sm items-center space-x-2" onSubmit={handleSearch}>
       <Input
         type="text"
         placeholder="Block Number ..."
@@ -40,7 +38,7 @@ const SearchInput: React.FC = () => {
       />
       <Button type="submit">Search</Button>
     </form>
-  );
-};
+  )
+}
 
-export default SearchInput;
+export default SearchInput
