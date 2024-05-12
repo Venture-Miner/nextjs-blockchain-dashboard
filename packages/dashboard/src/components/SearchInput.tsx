@@ -29,7 +29,7 @@ const SearchInput: React.FC = () => {
   }
 
   return (
-    <form className="my-12 flex w-full max-w-sm items-center space-x-2" onSubmit={handleSearch}>
+    <form className="my-12 flex w-3/4 items-center space-x-2" onSubmit={handleSearch}>
       <Input
         type="text"
         placeholder="Block Number ..."
